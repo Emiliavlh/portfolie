@@ -1,0 +1,39 @@
+body {
+  background-color: #fdffd2;
+  margin: 0;
+}
+
+.menubar {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.portfolio-pic {
+  display: block;
+  width: 25%;
+  max-width: 100%;
+  height: auto;
+  position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.hotbar {
+  display: block;
+  width: 55%;
+  max-width: 100%;
+  height: auto;
+  position: fixed;
+  bottom: 0;
+  left: 22.5%;
+  z-index: 1000;
+  cursor: pointer;
+}
