@@ -1,15 +1,13 @@
 /* ============================================================
    DESIGN TOKENS
-   TODO: adjust to match the colours in your menubar.png / hotbar.png
-   so the folders and windows feel like part of the same design.
 ============================================================= */
 :root {
   --bg-desktop: #fdffd2; /* desktop wallpaper colour behind everything */
 
-  --pink: #F9CFDB;
-  --green: #C3EEBC;
-  --blue: #BBDAF1;
-  --orange: #FBD2A9;
+  --pink: #f9cfdb;
+  --green: #c3eebc;
+  --blue: #bbdaf1;
+  --orange: #fbd2a9;
   --maroon: #9c4866;
 
   --ink: #22201a;
@@ -22,13 +20,11 @@
   --shadow-soft: 0 12px 30px rgba(0, 0, 0, 0.18);
   --shadow-window: 0 25px 60px rgba(0, 0, 0, 0.35);
 
-  --font-display:
-    "Georgia", "Times New Roman", serif; /* TODO: swap for your own display font */
-  --font-body:
-    "Helvetica Neue", Arial, sans-serif; /* TODO: swap for your own body font */
+  --font-display: "Georgia", "Times New Roman", serif;
+  --font-body: "Helvetica Neue", Arial, sans-serif;
 
-  /* Heights of your two bar images — used to push the desktop content
-     clear of them. Measure your actual PNGs and update these. */
+  /* Heights of the menu bar / hot bar images, used to push the
+     desktop content clear of them. */
   --menubar-height: 44px;
   --hotbar-height: 90px;
 }
@@ -48,9 +44,8 @@ body {
 
 /* ============================================================
    MENU BAR + HOT BAR
-   These are <img> elements, pinned to the top/bottom of the
-   viewport so they always stay visible while the desktop
-   scrolls underneath (if it needs to scroll at all).
+   Pinned to the top/bottom of the viewport so they stay visible
+   while the desktop scrolls underneath (if it needs to scroll).
 ============================================================= */
 .menubar {
   position: fixed;
@@ -72,8 +67,6 @@ body {
   max-width: 60%;
   z-index: 30;
   display: block;
-  /* the hot bar usually has clickable icons — remove the line below
-     if you want people to be able to click into it */
   pointer-events: none;
 }
 
@@ -124,31 +117,19 @@ body {
 .about-me-background {
   width: 200px;
   border-radius: 100%;
-  background: radial-gradient(
-    circle at 50% 50%,
-    var(--green) 30%,
-    rgba(31, 90, 199, 0) 70%
-  );
+  background: radial-gradient(circle at 50% 50%, var(--green) 30%, rgba(31, 90, 199, 0) 70%);
 }
 
 .my-work-background {
   width: 200px;
   border-radius: 100%;
-  background: radial-gradient(
-    circle at 50% 50%,
-    var(--blue) 30%,
-    rgba(31, 90, 199, 0) 70%
-  );
+  background: radial-gradient(circle at 50% 50%, var(--blue) 30%, rgba(31, 90, 199, 0) 70%);
 }
 
 .my-tools-background {
   width: 200px;
   border-radius: 100%;
-  background: radial-gradient(
-    circle at 50% 50%,
-    var(--orange) 40%,
-    rgba(31, 90, 199, 0) 70%
-  );
+  background: radial-gradient(circle at 50% 50%, var(--orange) 40%, rgba(31, 90, 199, 0) 70%);
 }
 
 .cv-background {
@@ -160,11 +141,7 @@ body {
 .contact-me-background {
   width: 200px;
   border-radius: 100%;
-  background: radial-gradient(
-    circle at 50% 50%,
-    var(--pink) 30%,
-    rgba(31, 90, 199, 0) 70%
-  );
+  background: radial-gradient(circle at 50% 50%, var(--pink) 30%, rgba(31, 90, 199, 0) 70%);
 }
 
 .folder--cv {
@@ -181,31 +158,34 @@ body {
   font-size: 13px;
   font-weight: 600;
   background: rgba(255, 255, 255, 0.5);
-  border: rgba(233, 223, 223, 0.5) 1px solid;
+  border: 1px solid rgba(233, 223, 223, 0.5);
   padding: 6px 10px;
   border-radius: 6px;
 }
 
 /* Desktop (wide-screen) scattered positions, as percentages of
    the .desktop area so they roughly hold their place at different
-   window sizes. TODO: nudge these to match your own folder images. */
-
+   window sizes. */
 .folder--about {
   top: 18%;
   left: 10%;
 }
+
 .folder--tools {
-  top: 12%;
-  right: 10%;
+  top: 10%;
+  right: 16%;
 }
+
 .folder--cv {
   top: 40%;
-  right: 10%;
+  right: 5%;
 }
+
 .folder--work {
   top: 58%;
   left: 8%;
 }
+
 .folder--contact {
   top: 60%;
   right: 12%;
@@ -240,7 +220,7 @@ body {
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-window);
   z-index: 50;
-  display: none; /* shown via .active, toggled in js/main.js */
+  display: none; /* shown via .active, toggled in js/script.js */
   flex-direction: column;
   overflow: hidden;
 }
@@ -282,9 +262,11 @@ body {
   background: #ec6a5e;
   cursor: pointer;
 }
+
 .dot--yellow {
   background: #f4bf4f;
 }
+
 .dot--green {
   background: #61c554;
 }
@@ -381,8 +363,7 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-auto-rows: min-content;
     gap: 20px;
-    padding: calc(var(--menubar-height) + 20px) 16px
-      calc(var(--hotbar-height) + 20px);
+    padding: calc(var(--menubar-height) + 20px) 16px calc(var(--hotbar-height) + 20px);
     overflow-y: auto;
   }
 
