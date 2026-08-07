@@ -13,15 +13,15 @@
   --ink: #22201a;
   --ink-soft: #4a473d;
   --cream: #faf8ee;
+  --card-ovartaci: #f5f2d6; /* project card background — Ovartaci */
+  --card-hundehimlen: #f7e7d6; /* project card background — Hundehimlen.dk */
 
   --radius-md: 14px;
   --radius-sm: 8px;
 
-  --shadow-soft: 0 12px 30px rgba(0, 0, 0, 0.18);
   --shadow-window: 0 25px 60px rgba(0, 0, 0, 0.35);
 
-  --font-display: "Georgia", "Times New Roman", serif;
-  --font-body: "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Nunito", "Helvetica Neue", Arial, sans-serif;
 
   /* Heights of the menu bar / hot bar images, used to push the
      desktop content clear of them. */
@@ -144,11 +144,6 @@ body {
   background: radial-gradient(circle at 50% 50%, var(--pink) 30%, rgba(31, 90, 199, 0) 70%);
 }
 
-.folder--cv {
-  width: 150px;
-  height: auto;
-}
-
 .folder:hover .folder-icon,
 .folder:focus-visible .folder-icon {
   transform: translateY(-3px) scale(1.04);
@@ -177,6 +172,8 @@ body {
 }
 
 .folder--cv {
+  width: 150px;
+  height: auto;
   top: 40%;
   right: 5%;
 }
@@ -210,12 +207,14 @@ body {
 }
 
 .window {
+  --stack-offset: 0px;
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -48%);
-  width: min(720px, 90vw);
-  max-height: 85vh;
+  transform: translate(calc(-50% + var(--stack-offset)), calc(-48% + var(--stack-offset)));
+  transition: transform 0.15s ease;
+  width: min(880px, 92vw);
+  max-height: 88vh;
   background: var(--cream);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-window);
@@ -230,9 +229,13 @@ body {
 }
 
 .window--pdf {
-  width: min(720px, 92vw);
-  height: 85vh;
-  max-height: 85vh;
+  width: min(880px, 94vw);
+  height: 88vh;
+  max-height: 88vh;
+}
+
+.window--project {
+  width: min(960px, 94vw);
 }
 
 .window-titlebar {
@@ -240,9 +243,10 @@ body {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 10px 14px;
+  padding: 12px 18px;
   background: #e7e3d4;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
 }
 
 .window-dots {
@@ -289,19 +293,23 @@ body {
 }
 
 .window-body {
-  padding: 24px;
+  padding: 32px 36px;
+  background: var(--cream);
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
   overflow-y: auto;
 }
 
 .window-body h2 {
   margin-top: 0;
-  font: nunito, sans-serif;
-  font-size: 24px;
+  font-family: "Nunito", sans-serif;
+  font-weight: 800;
+  font-size: 28px;
 }
 
 .window-body--pdf {
   padding: 0;
   flex: 1;
+  overflow: hidden;
 }
 
 .pdf-frame {
@@ -314,24 +322,167 @@ body {
 /* ---------- content helpers used inside windows ---------- */
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 8px;
 }
 
 .project-card {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: var(--cream);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  text-align: left;
   text-decoration: none;
   color: var(--ink);
-  font-size: 13px;
-  font-weight: 600;
+  cursor: pointer;
+  font-family: var(--font-body);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.project-card:hover,
+.project-card:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.14);
+}
+
+/* Tie each card's background to its detail window's accent colour,
+   so the preview hints at the theme before you click in. */
+.project-card[data-open="project-ovartaci"] {
+  background: var(--card-ovartaci);
+}
+
+.project-card[data-open="project-hundehimlen"] {
+  background: var(--card-hundehimlen);
 }
 
 .project-card img {
+  display: block;
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
   border-radius: var(--radius-sm);
-  margin-bottom: 6px;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+.project-card .font-to-folder {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+/* ---------- project detail windows ---------- */
+.tool-icons {
+  height: 22px;
+  width: auto;
+  display: block;
+  margin: 4px 0 16px;
+}
+
+#window-project-ovartaci .window-body {
+  background: var(--card-ovartaci);
+  padding: 28px 32px;
+}
+
+#window-project-hundehimlen .window-body {
+  background: var(--card-hundehimlen);
+  padding: 28px 32px;
+}
+
+/* Paragraphs and images sit in a narrower, centred column; the
+   heading and tool-icon row above stay full-width. */
+.detail-column {
+  max-width: 78%;
+  margin: 0 auto;
+}
+
+.detail-image {
+  display: block;
+  width: 100%;
+  border-radius: var(--radius-sm);
+}
+
+.detail-image--hero {
+  width: 94%;
+  margin: 20px auto;
+}
+
+.detail-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin: 24px 0;
+}
+
+.detail-row .font-to-folder {
+  margin-top: 0;
+  flex: 1;
+}
+
+.detail-image--half {
+  flex: 1;
+  min-width: 0;
+}
+
+.detail-image--phone {
+  flex: 0 0 auto;
+  width: 24%;
+  max-width: 190px;
+}
+
+.detail-image--laptop-small {
+  flex: 0 0 auto;
+  width: 46%;
+  max-width: 420px;
+}
+
+/* Device mockups: a <video> sits absolutely positioned over the
+   screen area of the phone/tablet/laptop PNG, so it looks like
+   the mockup is playing a clip. Inset percentages are eyeballed
+   against each image's bezel — nudge them if a video ever drifts
+   past the screen edge. */
+.device-mockup {
+  position: relative;
+}
+
+.device-mockup > img {
+  display: block;
+  width: 100%;
+}
+
+.device-screen {
+  position: absolute;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.device-screen--laptop {
+  top: 7.5%;
+  left: 10.5%;
+  width: calc(100% - 10.5% - 10.7%);
+  height: calc(100% - 7.5% - 13.3%);
+}
+
+.device-screen--phone {
+  top: 4.5%;
+  left: 7.5%;
+  width: calc(100% - 7.5% - 8%);
+  height: calc(100% - 4.5% - 6.5%);
+  border-radius: 10% / 4%;
+}
+
+.device-screen--tablet {
+  top: 4.2%;
+  left: 5%;
+  width: calc(100% - 9%);
+  height: calc(100% - 4.2% - 2.9%);
+  border-radius: 6px;
 }
 
 .tools-image {
@@ -345,7 +496,7 @@ body {
 }
 
 .font-to-folder {
-  font: nunito, sans-serif;
+  font-family: "Nunito", sans-serif;
   font-size: 20px;
   line-height: 1.6;
   margin-top: 16px;
@@ -401,11 +552,43 @@ body {
 
   .window {
     width: 92vw;
+    padding: 8px;
   }
 
   .window--pdf {
     width: 92vw;
     height: 80vh;
+  }
+
+  .window--project {
+    width: 92vw;
+  }
+
+  #window-project-ovartaci .window-body,
+  #window-project-hundehimlen .window-body {
+    padding: 24px;
+  }
+
+  .window-body {
+    padding: 20px;
+  }
+
+  .detail-column {
+    max-width: 100%;
+  }
+
+  .detail-row {
+    flex-direction: column;
+  }
+
+  .detail-image--phone,
+  .detail-image--laptop-small {
+    width: 50%;
+    max-width: 160px;
+  }
+
+  .detail-image--hero {
+    width: 100%;
   }
 }
 

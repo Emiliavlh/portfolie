@@ -87,14 +87,104 @@
     <div class="window-body">
       <h2>Mine projekter</h2>
       <div class="project-grid">
-        <a class="project-card" href="#">
-          <img src="img/project1.jpg" alt="Project 1 thumbnail" >
-          <span class="font-to-folder">Project title 1</span>
-        </a>
-        <a class="project-card" href="#">
-          <img src="img/project2.jpg" alt="Project 2 thumbnail" >
-          <span class="font-to-folder">Project title 2</span>
-        </a>
+        <button class="project-card" data-open="project-ovartaci">
+          <img src="img/ovartaci-projekt.png" alt="Ovartaci Museet projekt thumbnail" >
+          <span class="font-to-folder">Hvem minder du om? -<br />Ovartaci Museet</span>
+        </button>
+        <button class="project-card" data-open="project-hundehimlen">
+          <img src="img/hundehimlen-projekt.png" alt="Hundehimlen.dk projekt thumbnail" >
+          <span class="font-to-folder">Hundehimlen.dk</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECT DETAIL: Ovartaci Museet — opens on top of my-work, which stays open behind it -->
+  <section class="window window--project" id="window-project-ovartaci" role="dialog" aria-label="Ovartaci Museet projekt">
+    <div class="window-titlebar">
+      <div class="window-dots">
+        <button class="dot dot--red" data-close></button>
+        <span class="dot dot--yellow"></span>
+        <span class="dot dot--green"></span>
+      </div>
+      <span class="window-title">my-work</span>
+    </div>
+    <div class="window-body">
+      <h2>Ovartaci Museet - Hvem minder du om?</h2>
+      <img src="img/om-apps.png" alt="Figma, Photoshop, AI, VS Code, GitHub" class="tool-icons" >
+
+      <div class="detail-column">
+        <div class="detail-row">
+          <div class="device-mockup detail-image detail-image--half">
+            <img src="img/om-tablet.png" alt="Quiz-forside på tablet" >
+            <video class="device-screen device-screen--tablet" src="video/ovartaci-project.mov" muted loop playsinline preload="none"></video>
+          </div>
+          <img src="img/om-touch.png" alt="Touchskærm-installation i museet" class="detail-image detail-image--half" >
+        </div>
+
+        <p class="font-to-folder">
+          Projektet for Museum Ovartaci startede med en åben idégenerering gennem øvelser som Crazy 8s og Random Input, hvor vi fik udforsket mange kreative vinkler. Vi valgte det stærkeste koncept, tegnede skitser og brugte AI-visualiseringer til hurtigt at afstemme ideen med vores vejledere. For at sikre faglig dybde besøgte vi museet tre gange for at observere udstillingens dukker, studere baggrundsmateriale og tale med de ansatte. Parallelt med researcharbejdet udarbejdede vi et visuelt moodboard, som vi BERT-testede med målgruppen. Første test viste sig for uklart udtryk, så vi reviderede moodboardet, hvilket i anden testrunde gav os en langt mere entydig og moderne designretning.
+        </p>
+
+        <div class="detail-row detail-row--text-image">
+          <img src="img/om-moodboard.png" alt="Farvepalette og karaktermoodboard" class="detail-image detail-image--half" >
+          <p class="font-to-folder">
+            I designfasen byggede vi hurtige Figma-prototyper for at teste forskellige brugerflows. Vi samlede de bedste ideer i tre startside-forslag, som vi præferencetestede på 15 personer fra målgruppen. Testen viste en klar favorit i det dynamiske design med skiftende værker, som bedst fangede brugernes interesse. Derefter samlede vi løsningen i en ny prototype, som vi testede med Experience Mapping for at kortlægge testpersonernes handlinger, tanker og følelser gennem hele forløbet.
+          </p>
+        </div>
+
+        <div class="detail-row detail-row--text-image">
+          <p class="font-to-folder">
+            Indsigterne fra testen blev brugt til de sidste optimeringer af den endelige installation. Vi gjorde startsiden mere iøjnefaldende med stærkere farver og en kort introduktion. For at mindske den kognitive belastning skar vi quizzen ned fra seks til fem spørgsmål og fjernede en svarmulighed pr. spørgsmål. Til sidst tilføjede vi animationer på resultatsiden og en tydelig "Del dit billede!" call-to-action til selfie-funktionen, hvilket skabte en mere overskuelig og engagerende oplevelse.
+          </p>
+          <img src="img/om-tablet.png" alt="Den færdige quiz-forside på tablet" class="detail-image detail-image--half" >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECT DETAIL: Hundehimlen.dk — opens on top of my-work, which stays open behind it -->
+  <section class="window window--project" id="window-project-hundehimlen" role="dialog" aria-label="Hundehimlen.dk projekt">
+    <div class="window-titlebar">
+      <div class="window-dots">
+        <button class="dot dot--red" data-close></button>
+        <span class="dot dot--yellow"></span>
+        <span class="dot dot--green"></span>
+      </div>
+      <span class="window-title">my-work</span>
+    </div>
+    <div class="window-body">
+      <h2>Hundehimlen.dk</h2>
+      <img src="img/hh-apps.png" alt="Figma, WordPress, AI, VS Code, GitHub" class="tool-icons" >
+
+      <div class="detail-column">
+        <div class="device-mockup detail-image detail-image--hero">
+          <img src="img/hh-laptop.png" alt="Hundehimlen.dk forside på laptop" >
+          <video class="device-screen device-screen--laptop" src="video/hundehimlen-sr.mov" muted loop playsinline preload="none"></video>
+        </div>
+
+        <p class="font-to-folder">
+          I projektet med Hundehimlen.dk var opgaven at skabe en gennemtænkt B2C e-handelsløsning helt fra bunden. Processen startede i researchfasen, hvor vi kortlagde målgruppens behov og adfærd gennem et Value Proposition Canvas og personas. Parallelt lavede vi en søgeordsanalyse for at afdække, hvad kunderne reelt søger efter online, så vi kunne bygge sidestrukturen op omkring deres søgeintentioner. Visuelt samlede vi vores designvalg i et Style Tile, som fastlagde farvepalette, typografi og UI-komponenter med målet om at skabe et trygt og professionelt udtryk.
+        </p>
+
+        <img src="img/hh-collage.png" alt="Style tile og skærmbilleder af Hundehimlen.dk" class="detail-image detail-image--hero" >
+
+        <div class="detail-row detail-row--phone">
+          <p class="font-to-folder">
+            Derefter rykkede arbejdet over i den tekniske og funktionelle opbygning i WordPress og WooCommerce. Her var jeg med til at opbygge den tekniske struktur og sikre en brugervenlig navigation med kategorier, underkategorier og tags, så brugerne nemt kan filtrere produkterne på både mobil, tablet og desktop. Vi designede siderne med udgangspunkt i UX-principper og adfærdsdesign, hvor vi blandt andet brugte Cialdinis overtalelsesprincipper som Social Proof til at opbygge troværdighed og øge konverteringen. Samtidig implementerede vi SEO-optimerede tekster samt unikke meta-titler og -beskrivelser på tværs af kategorisider, produktsider og blogindlæg.
+          </p>
+          <div class="device-mockup detail-image detail-image--phone">
+            <img src="img/hh-mobile.png" alt="Fodertest på mobil" >
+            <video class="device-screen device-screen--phone" src="video/hh-fodertest.mp4" muted loop playsinline preload="none"></video>
+          </div>
+        </div>
+
+        <div class="detail-row detail-row--closing">
+          <img src="img/hh-laptop.png" alt="Den færdige Hundehimlen.dk webshop på laptop" class="detail-image detail-image--laptop-small" >
+          <p class="font-to-folder">
+            Det endelige resultat blev en komplet og responsiv webshop, som blev koblet tæt sammen med vores markedsføringsstrategi for sociale medier. For at drive den rette trafik til shoppen udviklede vi tre målrettede videoer til Meta, der ramte henholdsvis en kernemålgruppe, en tilpasset målgruppe og en kopimålgruppe (Lookalike). Projektet gav mig en stærk og praktisk forståelse for hele kæden i digital produktudvikling – fra den spæde målgruppeanalyse og Figma-skitsering til teknisk WooCommerce-eksekvering, SEO og konverterende design.
+          </p>
+        </div>
       </div>
     </div>
   </section>
@@ -139,8 +229,7 @@
       <span class="window-title">contact-me</span>
     </div>
     <div class="window-body">
-      <h2 class="font-to-folder">Contact me</h2>
-      <p class="font-to-folder">Feel free to reach out:</p>
+      <h2 class="font-to-folder">Kontakt mig hvis du er interesseret i at samarbejde:</h2>
       <p class="font-to-folder">
         <strong>Email:</strong>
         <a href="mailto:emiliavigga@gmail.com">emiliavigga@gmail.com</a>
