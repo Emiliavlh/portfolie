@@ -1,17 +1,217 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Gotu&family=Jua&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Yrsa:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="css/style.css">
+    <!-- TODO: replace with your own name / title -->
     <title>Portfolio</title>
-</head>
-<body>
-<img src="img/menubar.png" alt="Menu Bar" class="menubar">
-<img src="img/portfolio-pic.png" alt="Portfolio Picture" class="portfolio-pic">
-<img src="img/hotbar.png" alt="Hot Bar" class="hotbar">
+  </head>
+  <body>
+    <!-- Fixed to the top of the viewport, see .menubar in style.css -->
+    <img src="img/menubar.png" alt="Menu Bar" class="menubar" />
 
+    <!-- Fixed to the bottom of the viewport, see .hotbar in style.css -->
+    <img src="img/hotbar.png" alt="Hot Bar" class="hotbar" />
 
-<script src="js/main.js"></script>
-</body>
+    <!-- ============================================================
+         DESKTOP — everything that sits between the menu bar and the
+         hot bar: your photo + the scattered folders.
+         main has padding-top/padding-bottom in the CSS so nothing
+         hides underneath the two fixed image bars.
+    ============================================================= -->
+    <main class="desktop">
+      <!-- ---------- YOUR PHOTO ---------- -->
+      <!-- TODO: replace with your own portfolio picture, or delete
+           this whole <img> if portfolio-pic.png already includes
+           your photo baked into the design. -->
+      <img
+        src="img/portfolio-pic.png"
+        alt="Portfolio Picture"
+        class="portfolio-pic"
+      />
+
+      <!-- ---------- FOLDERS ----------
+           data-open must match the id of a .window below
+           (e.g. data-open="about-me" opens #window-about-me).
+           Position/colour for each is set via the folder--X class
+           in style.css.
+      -->
+      <button class="folder folder--about" data-open="about-me">
+        <img src="img/about-me-folder.png " alt="" class="folder-icon about-me-background">
+        <span class="folder-label">about-me</span>
+      </button>
+
+      <button class="folder folder--work " data-open="my-work">
+        <img src="img/my-work-folder.png" alt="" class="folder-icon my-work-background">
+        <span class="folder-label">my-work</span>
+      </button>
+
+      <button class="folder folder--tools" data-open="my-tools">
+        <img src="img/my-tools-folder.png" alt="" class="folder-icon my-tools-background">
+        <span class="folder-label">my-tools</span>
+      </button>
+
+      <button class="folder folder--cv" data-open="cv-pdf">
+        <img src="img/cv.png" alt="" class="folder-icon cv-background">
+        <span class="folder-label">cv.pdf</span>
+      </button>
+
+      <button class="folder folder--contact" data-open="contact-me">
+        <img src="img/contact-me-folder.png" alt="" class="folder-icon contact-me-background">
+        <span class="folder-label">contact-me</span>
+      </button>
+    </main>
+
+    <!-- ============================================================
+         OVERLAY — dims the background when a window is open
+    ============================================================= -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- ============================================================
+         WINDOWS — the "opened folder" pop-ups. Hidden until clicked.
+         Put your real content inside each .window-body.
+    ============================================================= -->
+
+    <!-- ABOUT ME -->
+    <section
+      class="window"
+      id="window-about-me"
+      role="dialog"
+      aria-label="About me"
+    >
+      <div class="window-titlebar">
+        <div class="window-dots">
+          <button class="dot dot--red" data-close></button>
+          <span class="dot dot--yellow"></span>
+          <span class="dot dot--green"></span>
+        </div>
+        <span class="window-title">about-me</span>
+      </div>
+      <div class="window-body">
+        <!-- TODO: replace with your real "about me" text/photos -->
+        <h2 class="font-to-folder">Lidt om mig</h2>
+        <p class="font-to-folder">
+            Jeg er Emilia, multimediedesignstuderende med fokus på UI/UX-design, konceptudvikling og gode brugeroplevelser.
+            Til dagligt arbejder jeg i Figma, Adobe-pakken og bygger frontend med HTML, CSS og JavaScript i VS Code. Erfaringen fra mit arbejde hos Panduro har lært mig at forstå målgrupper, lytte og kommunikere ordentligt.
+            Som person er jeg smilende, nysgerrig og trives bedst i et team, hvor vi sparrer åbent og løfter i flok.
+            Klik rundt i mapperne, og skriv endelig, hvis du vil snakke om en mulig praktikplads!
+        </p>
+        <img src="img/info-about-me.png" alt="About Me" class="about-me-image">
+      </div>
+    </section>
+
+    <!-- MY WORK / PROJECTS -->
+    <section
+      class="window"
+      id="window-my-work"
+      role="dialog"
+      aria-label="My work"
+    >
+      <div class="window-titlebar">
+        <div class="window-dots">
+          <button class="dot dot--red" data-close></button>
+          <span class="dot dot--yellow"></span>
+          <span class="dot dot--green"></span>
+        </div>
+        <span class="window-title">my-work</span>
+      </div>
+      <div class="window-body">
+        <!-- TODO: replace with your real projects. Duplicate .project-card as needed. -->
+        <h2>Mine projekter</h2>
+        <div class="project-grid">
+          <a class="project-card" href="#">
+            <img src="img/project1.jpg" alt="Project 1 thumbnail" />
+            <span class="font-to-folder">Project title 1</span>
+          </a>
+          <a class="project-card" href="#">
+            <img src="img/project2.jpg" alt="Project 2 thumbnail" />
+            <span class="font-to-folder">Project title 2</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- MY TOOLS -->
+    <section
+      class="window"
+      id="window-my-tools"
+      role="dialog"
+      aria-label="My tools"
+    >
+      <div class="window-titlebar">
+        <div class="window-dots">
+          <button class="dot dot--red" data-close></button>
+          <span class="dot dot--yellow"></span>
+          <span class="dot dot--green"></span>
+        </div>
+        <span class="window-title">my-tools</span>
+      </div>
+      <div class="window-body">
+        <!-- TODO: replace with the software/tools you actually use -->
+        <img src="img/apps.png" alt="My tools" class="tools-image">
+      </div>
+    </section>
+
+    <!-- CV.PDF — opens the PDF inline, no forced download -->
+    <section
+      class="window window--pdf"
+      id="window-cv-pdf"
+      role="dialog"
+      aria-label="CV preview"
+    >
+      <div class="window-titlebar">
+        <div class="window-dots">
+          <button class="dot dot--red" data-close></button>
+          <span class="dot dot--yellow"></span>
+          <span class="dot dot--green"></span>
+        </div>
+        <span class="window-title">cv.pdf</span>
+        <!-- TODO: replace cv.pdf with the actual path to your CV file -->
+        <a class="window-open-link" href="files/cv.pdf" target="_blank" rel="noopener"
+          >Open in new tab ↗</a
+        >
+      </div>
+      <div class="window-body window-body--pdf">
+        <!-- TODO: replace cv.pdf with the actual path to your CV file -->
+        <iframe src="cv.pdf" title="CV preview" class="pdf-frame"></iframe>
+      </div>
+    </section>
+
+    <!-- CONTACT ME -->
+    <section
+      class="window"
+      id="window-contact-me"
+      role="dialog"
+      aria-label="Contact me"
+    >
+      <div class="window-titlebar">
+        <div class="window-dots">
+          <button class="dot dot--red" data-close></button>
+          <span class="dot dot--yellow"></span>
+          <span class="dot dot--green"></span>
+        </div>
+        <span class="window-title">contact-me</span>
+      </div>
+      <div class="window-body">
+        <!-- TODO: replace with your real contact info / a real form action -->
+        <h2 class="font-to-folder">Contact me</h2>
+        <p class="font-to-folder">Feel free to reach out:</p>
+        <p class="font-to-folder">
+          <strong>Email:</strong>
+          <a href="mailto:emiliavigga@gmail.com">emiliavigga@gmail.com</a>
+        </p>
+        <p class="font-to-folder"><strong>Instagram:</strong> <a href="https://www.instagram.com/emiliavigga" target="_blank" rel="noopener noreferrer">@emiliavigga</a></p>
+        <p class="font-to-folder">
+          <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/emilia-h%C3%B8rning-09171b3aa/" target="_blank" rel="noopener noreferrer">https://www.linkedin.com/in/emilia-h%C3%B8rning</a>
+        </p>
+      </div>
+    </section>
+
+    <script src="js/script.js"></script>
+  </body>
 </html>
