@@ -15,6 +15,7 @@
   --cream: #faf8ee;
   --card-ovartaci: #f5f2d6; /* project card background — Ovartaci */
   --card-hundehimlen: #f7e7d6; /* project card background — Hundehimlen.dk */
+  --card-lumina: #e8d8c6; /* project card background — Lumina Audio */
 
   --radius-md: 14px;
   --radius-sm: 8px;
@@ -358,6 +359,10 @@ body {
 
 .project-card[data-open="project-hundehimlen"] {
   background: var(--card-hundehimlen);
+}
+
+.project-card--lumina {
+  background: var(--card-lumina);
 }
 
 .project-card img {
