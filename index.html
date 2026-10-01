@@ -1,51 +1,51 @@
 <!doctype html>
-<html lang="en">
+<html lang="da">
 <head>
   <meta charset="UTF-8" >
   <meta name="viewport" content="width=device-width, initial-scale=1.0" >
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" >
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Gotu&family=Jua&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Yrsa:ital,wght@0,300..700;1,300..700&display=swap"
-    rel="stylesheet"
-  >
+  <link rel="preload" href="fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="img/favicon.ico" type="image/x-icon">
 
-  <title>Portfolio</title>
+  <meta name="description" content="Portfolio for Emilia Hørning, multimediedesignstuderende med fokus på UI/UX-design, konceptudvikling og frontend.">
+  <title>Emilia Hørning – Portfolio</title>
 </head>
 <body>
 
-  <img src="img/menubar.png" alt="Menu Bar" class="menubar" >
-  <img src="img/hotbar.png" alt="Hot Bar" class="hotbar" >
+  <img src="img/menubar.webp" srcset="img/menubar-1000.webp 1000w, img/menubar.webp 2880w" sizes="100vw" alt="" width="2880" height="88" class="menubar" >
+  <img src="img/hotbar.webp" srcset="img/hotbar-800.webp 800w, img/hotbar-1600.webp 1600w, img/hotbar.webp 2400w" sizes="60vw" alt="" width="2400" height="359" class="hotbar" >
 
   <!-- DESKTOP: photo + scattered folders -->
   <main class="desktop">
-    <img src="img/portfolio-pic.png" alt="Portfolio Picture" class="portfolio-pic" >
+    <h1 class="visually-hidden">Emilia Hørning – Portfolio</h1>
+    <div class="portrait">
+      <img src="img/portfolio-pic.webp" srcset="img/portfolio-pic-400.webp 400w, img/portfolio-pic.webp 640w" sizes="(max-width: 640px) 200px, 320px" alt="Portræt af Emilia Hørning" width="640" height="896" fetchpriority="high" class="portfolio-pic" >
+      <p class="post-it">Jeg har fokus på UX/UI-design, koncept&shy;udvikling og gode bruger&shy;oplevelser.</p>
+    </div>
 
-    <button class="folder folder--about" data-open="about-me">
-      <img src="img/about-me-folder.png" alt="" class="folder-icon about-me-background" >
+    <button type="button" class="folder folder--about" data-open="about-me">
+      <img src="img/about-me-folder.webp" srcset="img/about-me-folder-200.webp 200w, img/about-me-folder.webp 400w" sizes="(max-width: 640px) 100px, 200px" alt="" width="400" height="354" class="folder-icon about-me-background" >
       <span class="folder-label">about-me</span>
     </button>
 
-    <button class="folder folder--work" data-open="my-work">
-      <img src="img/my-work-folder.png" alt="" class="folder-icon my-work-background" >
+    <button type="button" class="folder folder--work" data-open="my-work">
+      <img src="img/my-work-folder.webp" srcset="img/my-work-folder-200.webp 200w, img/my-work-folder.webp 400w" sizes="(max-width: 640px) 100px, 200px" alt="" width="400" height="354" class="folder-icon my-work-background" >
       <span class="folder-label">my-work</span>
     </button>
 
-    <button class="folder folder--tools" data-open="my-tools">
-      <img src="img/my-tools-folder.png" alt="" class="folder-icon my-tools-background" >
+    <button type="button" class="folder folder--tools" data-open="my-tools">
+      <img src="img/my-tools-folder.webp" srcset="img/my-tools-folder-200.webp 200w, img/my-tools-folder.webp 400w" sizes="(max-width: 640px) 100px, 200px" alt="" width="400" height="354" class="folder-icon my-tools-background" >
       <span class="folder-label">my-tools</span>
     </button>
 
-    <button class="folder folder--cv" data-open="cv-pdf">
-      <img src="img/cv.png" alt="" class="folder-icon cv-background" >
+    <button type="button" class="folder folder--cv" data-open="cv-pdf">
+      <img src="img/cv.webp" alt="" width="278" height="330" class="folder-icon cv-background" >
       <span class="folder-label">cv.pdf</span>
     </button>
 
-    <button class="folder folder--contact" data-open="contact-me">
-      <img src="img/contact-me-folder.png" alt="" class="folder-icon contact-me-background" >
+    <button type="button" class="folder folder--contact" data-open="contact-me">
+      <img src="img/contact-me-folder.webp" srcset="img/contact-me-folder-200.webp 200w, img/contact-me-folder.webp 400w" sizes="(max-width: 640px) 100px, 200px" alt="" width="400" height="354" class="folder-icon contact-me-background" >
       <span class="folder-label">contact-me</span>
     </button>
   </main>
@@ -55,12 +55,12 @@
 
   <!-- WINDOWS: "opened folder" pop-ups -->
 
-  <section class="window" id="window-about-me" role="dialog" aria-label="About me">
+  <section class="window" id="window-about-me" role="dialog" aria-modal="true" aria-label="About me">
     <div class="window-titlebar">
       <div class="window-dots">
-        <button class="dot dot--red" data-close></button>
-        <span class="dot dot--yellow"></span>
-        <span class="dot dot--green"></span>
+        <button type="button" class="dot dot--red" data-close aria-label="Luk vindue"></button>
+        <span class="dot dot--yellow" aria-hidden="true"></span>
+        <span class="dot dot--green" aria-hidden="true"></span>
       </div>
       <span class="window-title">about-me</span>
     </div>
@@ -72,32 +72,49 @@
         Som person er jeg smilende, nysgerrig og trives bedst i et team, hvor vi sparrer åbent og løfter i flok.
         Klik rundt i mapperne, og skriv endelig, hvis du vil snakke om en mulig praktikplads!
       </p>
-      <img src="img/info-about-me.png" alt="About Me" class="about-me-image" >
+      <dl class="about-me-info">
+        <div class="about-me-info-item">
+          <dt>Bopæl</dt>
+          <dd>Aarhus C</dd>
+        </div>
+        <div class="about-me-info-item">
+          <dt>Uddannelse</dt>
+          <dd>Multimediedesign, Erhvervsakademi Aarhus</dd>
+        </div>
+        <div class="about-me-info-item">
+          <dt>Erfaring</dt>
+          <dd>1+ År</dd>
+        </div>
+        <div class="about-me-info-item">
+          <dt>Status</dt>
+          <dd>Open for work</dd>
+        </div>
+      </dl>
     </div>
   </section>
 
-  <section class="window" id="window-my-work" role="dialog" aria-label="My work">
+  <section class="window" id="window-my-work" role="dialog" aria-modal="true" aria-label="My work">
     <div class="window-titlebar">
       <div class="window-dots">
-        <button class="dot dot--red" data-close></button>
-        <span class="dot dot--yellow"></span>
-        <span class="dot dot--green"></span>
+        <button type="button" class="dot dot--red" data-close aria-label="Luk vindue"></button>
+        <span class="dot dot--yellow" aria-hidden="true"></span>
+        <span class="dot dot--green" aria-hidden="true"></span>
       </div>
       <span class="window-title">my-work</span>
     </div>
     <div class="window-body">
       <h2>Mine projekter</h2>
       <div class="project-grid">
-        <button class="project-card" data-open="project-ovartaci">
-          <img src="img/ovartaci-projekt.png" alt="Ovartaci Museet projekt thumbnail" >
+        <button type="button" class="project-card" data-open="project-ovartaci">
+          <img src="img/ovartaci-projekt.webp" loading="lazy" decoding="async" alt="Ovartaci Museet projekt thumbnail" >
           <span class="font-to-folder">Hvem minder du om? -<br />Ovartaci Museet</span>
         </button>
-        <button class="project-card" data-open="project-hundehimlen">
-          <img src="img/hundehimlen-projekt.png" alt="Hundehimlen.dk projekt thumbnail" >
+        <button type="button" class="project-card" data-open="project-hundehimlen">
+          <img src="img/hundehimlen-projekt.webp" loading="lazy" decoding="async" alt="Hundehimlen.dk projekt thumbnail" >
           <span class="font-to-folder">Hundehimlen.dk</span>
         </button>
         <a class="project-card project-card--lumina" href="https://emiliavlh.github.io/lumina-del2-eksamen/#hero" target="_blank" rel="noopener">
-          <img src="img/lumina-projekt.png" alt="Lumina Audio projekt thumbnail" >
+          <img src="img/lumina-projekt.webp" loading="lazy" decoding="async" alt="Lumina Audio projekt thumbnail" >
           <span class="font-to-folder">Lumina Audio</span>
         </a>
       </div>
@@ -105,26 +122,26 @@
   </section>
 
   <!-- PROJECT DETAIL: Ovartaci Museet — opens on top of my-work, which stays open behind it -->
-  <section class="window window--project" id="window-project-ovartaci" role="dialog" aria-label="Ovartaci Museet projekt">
+  <section class="window window--project" id="window-project-ovartaci" role="dialog" aria-modal="true" aria-label="Ovartaci Museet projekt">
     <div class="window-titlebar">
       <div class="window-dots">
-        <button class="dot dot--red" data-close></button>
-        <span class="dot dot--yellow"></span>
-        <span class="dot dot--green"></span>
+        <button type="button" class="dot dot--red" data-close aria-label="Luk vindue"></button>
+        <span class="dot dot--yellow" aria-hidden="true"></span>
+        <span class="dot dot--green" aria-hidden="true"></span>
       </div>
       <span class="window-title">my-work</span>
     </div>
     <div class="window-body">
       <h2>Ovartaci Museet - Hvem minder du om?</h2>
-      <img src="img/om-apps.png" alt="Figma, Photoshop, AI, VS Code, GitHub" class="tool-icons" >
+      <img src="img/om-apps.webp" loading="lazy" decoding="async" alt="Figma, Photoshop, AI, VS Code, GitHub" class="tool-icons" >
 
       <div class="detail-column">
         <div class="detail-row">
           <div class="device-mockup detail-image detail-image--half">
-            <img src="img/om-tablet.png" alt="Quiz-forside på tablet" >
-            <video class="device-screen device-screen--tablet" src="video/ovartaci-project.mov" muted loop playsinline preload="none"></video>
+            <img src="img/om-tablet.webp" loading="lazy" decoding="async" alt="Quiz-forside på tablet" >
+            <video class="device-screen device-screen--tablet" src="video/ovartaci-project-web.mp4" aria-hidden="true" muted loop playsinline preload="none"></video>
           </div>
-          <img src="img/om-touch.png" alt="Touchskærm-installation i museet" class="detail-image detail-image--half" >
+          <img src="img/om-touch.webp" loading="lazy" decoding="async" alt="Touchskærm-installation i museet" class="detail-image detail-image--half" >
         </div>
 
         <p class="font-to-folder">
@@ -132,7 +149,7 @@
         </p>
 
         <div class="detail-row detail-row--text-image">
-          <img src="img/om-moodboard.png" alt="Farvepalette og karaktermoodboard" class="detail-image detail-image--half" >
+          <img src="img/om-moodboard.webp" loading="lazy" decoding="async" alt="Farvepalette og karaktermoodboard" class="detail-image detail-image--half" >
           <p class="font-to-folder">
             I designfasen byggede vi hurtige Figma-prototyper for at teste forskellige brugerflows. Vi samlede de bedste ideer i tre startside-forslag, som vi præferencetestede på 15 personer fra målgruppen. Testen viste en klar favorit i det dynamiske design med skiftende værker, som bedst fangede brugernes interesse. Derefter samlede vi løsningen i en ny prototype, som vi testede med Experience Mapping for at kortlægge testpersonernes handlinger, tanker og følelser gennem hele forløbet.
           </p>
@@ -142,50 +159,50 @@
           <p class="font-to-folder">
             Indsigterne fra testen blev brugt til de sidste optimeringer af den endelige installation. Vi gjorde startsiden mere iøjnefaldende med stærkere farver og en kort introduktion. For at mindske den kognitive belastning skar vi quizzen ned fra seks til fem spørgsmål og fjernede en svarmulighed pr. spørgsmål. Til sidst tilføjede vi animationer på resultatsiden og en tydelig "Del dit billede!" call-to-action til selfie-funktionen, hvilket skabte en mere overskuelig og engagerende oplevelse.
           </p>
-          <img src="img/om-tablet.png" alt="Den færdige quiz-forside på tablet" class="detail-image detail-image--half" >
+          <img src="img/om-tablet.webp" loading="lazy" decoding="async" alt="Den færdige quiz-forside på tablet" class="detail-image detail-image--half" >
         </div>
       </div>
     </div>
   </section>
 
   <!-- PROJECT DETAIL: Hundehimlen.dk — opens on top of my-work, which stays open behind it -->
-  <section class="window window--project" id="window-project-hundehimlen" role="dialog" aria-label="Hundehimlen.dk projekt">
+  <section class="window window--project" id="window-project-hundehimlen" role="dialog" aria-modal="true" aria-label="Hundehimlen.dk projekt">
     <div class="window-titlebar">
       <div class="window-dots">
-        <button class="dot dot--red" data-close></button>
-        <span class="dot dot--yellow"></span>
-        <span class="dot dot--green"></span>
+        <button type="button" class="dot dot--red" data-close aria-label="Luk vindue"></button>
+        <span class="dot dot--yellow" aria-hidden="true"></span>
+        <span class="dot dot--green" aria-hidden="true"></span>
       </div>
       <span class="window-title">my-work</span>
     </div>
     <div class="window-body">
       <h2>Hundehimlen.dk</h2>
-      <img src="img/hh-apps.png" alt="Figma, WordPress, AI, VS Code, GitHub" class="tool-icons" >
+      <img src="img/hh-apps.webp" loading="lazy" decoding="async" alt="Figma, WordPress, AI, VS Code, GitHub" class="tool-icons" >
 
       <div class="detail-column">
         <div class="device-mockup detail-image detail-image--hero">
-          <img src="img/hh-laptop.png" alt="Hundehimlen.dk forside på laptop" >
-          <video class="device-screen device-screen--laptop" src="video/hundehimlen-sr.mov" muted loop playsinline preload="none"></video>
+          <img src="img/hh-laptop.webp" loading="lazy" decoding="async" alt="Hundehimlen.dk forside på laptop" >
+          <video class="device-screen device-screen--laptop" src="video/hundehimlen-sr-web.mp4" aria-hidden="true" muted loop playsinline preload="none"></video>
         </div>
 
         <p class="font-to-folder">
           I projektet med Hundehimlen.dk var opgaven at skabe en gennemtænkt B2C e-handelsløsning helt fra bunden. Processen startede i researchfasen, hvor vi kortlagde målgruppens behov og adfærd gennem et Value Proposition Canvas og personas. Parallelt lavede vi en søgeordsanalyse for at afdække, hvad kunderne reelt søger efter online, så vi kunne bygge sidestrukturen op omkring deres søgeintentioner. Visuelt samlede vi vores designvalg i et Style Tile, som fastlagde farvepalette, typografi og UI-komponenter med målet om at skabe et trygt og professionelt udtryk.
         </p>
 
-        <img src="img/hh-collage.png" alt="Style tile og skærmbilleder af Hundehimlen.dk" class="detail-image detail-image--hero" >
+        <img src="img/hh-collage.webp" loading="lazy" decoding="async" alt="Style tile og skærmbilleder af Hundehimlen.dk" class="detail-image detail-image--hero" >
 
         <div class="detail-row detail-row--phone">
           <p class="font-to-folder">
             Derefter rykkede arbejdet over i den tekniske og funktionelle opbygning i WordPress og WooCommerce. Her var jeg med til at opbygge den tekniske struktur og sikre en brugervenlig navigation med kategorier, underkategorier og tags, så brugerne nemt kan filtrere produkterne på både mobil, tablet og desktop. Vi designede siderne med udgangspunkt i UX-principper og adfærdsdesign, hvor vi blandt andet brugte Cialdinis overtalelsesprincipper som Social Proof til at opbygge troværdighed og øge konverteringen. Samtidig implementerede vi SEO-optimerede tekster samt unikke meta-titler og -beskrivelser på tværs af kategorisider, produktsider og blogindlæg.
           </p>
           <div class="device-mockup detail-image detail-image--phone">
-            <img src="img/hh-mobile.png" alt="Fodertest på mobil" >
-            <video class="device-screen device-screen--phone" src="video/hh-fodertest.mp4" muted loop playsinline preload="none"></video>
+            <img src="img/hh-mobile.webp" loading="lazy" decoding="async" alt="Fodertest på mobil" >
+            <video class="device-screen device-screen--phone" src="video/hh-fodertest-web.mp4" aria-hidden="true" muted loop playsinline preload="none"></video>
           </div>
         </div>
 
         <div class="detail-row detail-row--closing">
-          <img src="img/hh-laptop.png" alt="Den færdige Hundehimlen.dk webshop på laptop" class="detail-image detail-image--laptop-small" >
+          <img src="img/hh-laptop.webp" loading="lazy" decoding="async" alt="Den færdige Hundehimlen.dk webshop på laptop" class="detail-image detail-image--laptop-small" >
           <p class="font-to-folder">
             Det endelige resultat blev en komplet og responsiv webshop, som blev koblet tæt sammen med vores markedsføringsstrategi for sociale medier. For at drive den rette trafik til shoppen udviklede vi tre målrettede videoer til Meta, der ramte henholdsvis en kernemålgruppe, en tilpasset målgruppe og en kopimålgruppe (Lookalike). Projektet gav mig en stærk og praktisk forståelse for hele kæden i digital produktudvikling – fra den spæde målgruppeanalyse og Figma-skitsering til teknisk WooCommerce-eksekvering, SEO og konverterende design.
           </p>
@@ -194,42 +211,42 @@
     </div>
   </section>
 
-  <section class="window" id="window-my-tools" role="dialog" aria-label="My tools">
+  <section class="window" id="window-my-tools" role="dialog" aria-modal="true" aria-label="My tools">
     <div class="window-titlebar">
       <div class="window-dots">
-        <button class="dot dot--red" data-close></button>
-        <span class="dot dot--yellow"></span>
-        <span class="dot dot--green"></span>
+        <button type="button" class="dot dot--red" data-close aria-label="Luk vindue"></button>
+        <span class="dot dot--yellow" aria-hidden="true"></span>
+        <span class="dot dot--green" aria-hidden="true"></span>
       </div>
       <span class="window-title">my-tools</span>
     </div>
     <div class="window-body">
-      <img src="img/apps.png" alt="My tools" class="tools-image" >
+      <img src="img/apps.webp" loading="lazy" decoding="async" alt="Værktøjer: Figma, Illustrator, Photoshop, VS Code, GitHub, After Effects, Procreate, CapCut, Final Cut Pro, WordPress, Claude.ai, Copilot og Gemini" class="tools-image" >
     </div>
   </section>
 
   <!-- CV.PDF: opens the PDF inline, no forced download -->
-  <section class="window window--pdf" id="window-cv-pdf" role="dialog" aria-label="CV preview">
+  <section class="window window--pdf" id="window-cv-pdf" role="dialog" aria-modal="true" aria-label="CV preview">
     <div class="window-titlebar">
       <div class="window-dots">
-        <button class="dot dot--red" data-close></button>
-        <span class="dot dot--yellow"></span>
-        <span class="dot dot--green"></span>
+        <button type="button" class="dot dot--red" data-close aria-label="Luk vindue"></button>
+        <span class="dot dot--yellow" aria-hidden="true"></span>
+        <span class="dot dot--green" aria-hidden="true"></span>
       </div>
       <span class="window-title">cv.pdf</span>
-      <a class="window-open-link" href="files/cv.pdf" target="_blank" rel="noopener">Open in new tab ↗</a>
+      <a class="window-open-link" href="files/cv.pdf" target="_blank" rel="noopener">Open in new tab <span aria-hidden="true">↗</span></a>
     </div>
     <div class="window-body window-body--pdf">
-      <iframe src="files/cv.pdf" title="CV preview" class="pdf-frame"></iframe>
+      <iframe data-src="files/cv.pdf" title="CV preview" class="pdf-frame"></iframe>
     </div>
   </section>
 
-  <section class="window" id="window-contact-me" role="dialog" aria-label="Contact me">
+  <section class="window" id="window-contact-me" role="dialog" aria-modal="true" aria-label="Contact me">
     <div class="window-titlebar">
       <div class="window-dots">
-        <button class="dot dot--red" data-close></button>
-        <span class="dot dot--yellow"></span>
-        <span class="dot dot--green"></span>
+        <button type="button" class="dot dot--red" data-close aria-label="Luk vindue"></button>
+        <span class="dot dot--yellow" aria-hidden="true"></span>
+        <span class="dot dot--green" aria-hidden="true"></span>
       </div>
       <span class="window-title">contact-me</span>
     </div>
@@ -238,7 +255,6 @@
       <p class="font-to-folder">
         <strong>Email:</strong>
         <a href="mailto:emiliavigga@gmail.com">emiliavigga@gmail.com</a>
-      </p>
       </p>
       <p class="font-to-folder">
         <strong>LinkedIn:</strong>
