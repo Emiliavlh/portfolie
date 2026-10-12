@@ -63,7 +63,7 @@ function openWindow(id, opener) {
   // since the clips are large and there's no point streaming them
   // in the background. Skipped when the user prefers reduced motion.
   if (!reduceMotion.matches) {
-    win.querySelectorAll(".device-screen").forEach((video) => {
+    win.querySelectorAll("video.device-screen").forEach((video) => {
       video.play().catch(() => {});
     });
   }
@@ -76,7 +76,7 @@ function closeWindow(win) {
   openStack = openStack.filter((w) => w !== win);
   restackWindows();
 
-  win.querySelectorAll(".device-screen").forEach((video) => {
+  win.querySelectorAll("video.device-screen").forEach((video) => {
     video.pause();
     video.currentTime = 0;
   });

@@ -436,7 +436,7 @@ body {
   background: var(--card-hundehimlen);
 }
 
-.project-card--lumina {
+.project-card[data-open="project-lumina"] {
   background: var(--card-lumina);
 }
 
@@ -472,6 +472,11 @@ body {
 
 #window-project-hundehimlen .window-body {
   background: var(--card-hundehimlen);
+  padding: 28px 32px;
+}
+
+#window-project-lumina .window-body {
+  background: var(--card-lumina);
   padding: 28px 32px;
 }
 
@@ -531,7 +536,7 @@ body {
   position: relative;
 }
 
-.device-mockup > img {
+.device-mockup > img:not(.device-screen) {
   display: block;
   width: 100%;
 }
@@ -563,6 +568,91 @@ body {
   width: calc(100% - 9%);
   height: calc(100% - 4.2% - 2.9%);
   border-radius: 6px;
+}
+
+/* Before/after numbers in the Lumina window: the new value is
+   the big one, the old value sits underneath as a small note. */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 24px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 14px 12px;
+  background: var(--cream);
+  border-radius: var(--radius-sm);
+  text-align: center;
+}
+
+.stat-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+
+.stat-value {
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.stat-before {
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+/* Three mobile screens side by side */
+.detail-screens {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: start;
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.detail-screens img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.detail-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin: 28px 0 8px;
+}
+
+.detail-link {
+  padding: 12px 22px;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--cream);
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.15s ease;
+}
+
+.detail-link--ghost {
+  background: transparent;
+  color: var(--ink);
+}
+
+.detail-link:hover,
+.detail-link:focus-visible {
+  transform: translateY(-2px);
 }
 
 .tools-image {
@@ -694,7 +784,8 @@ body {
   }
 
   #window-project-ovartaci .window-body,
-  #window-project-hundehimlen .window-body {
+  #window-project-hundehimlen .window-body,
+  #window-project-lumina .window-body {
     padding: 24px;
   }
 
@@ -734,6 +825,14 @@ body {
 
   .detail-image--hero {
     width: 100%;
+  }
+
+  .stat-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .detail-screens {
+    gap: 8px;
   }
 }
 

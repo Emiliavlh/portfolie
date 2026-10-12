@@ -113,10 +113,10 @@
           <img src="img/hundehimlen-projekt.webp" loading="lazy" decoding="async" alt="Hundehimlen.dk projekt thumbnail" >
           <span class="font-to-folder">Hundehimlen.dk</span>
         </button>
-        <a class="project-card project-card--lumina" href="https://emiliavlh.github.io/lumina-del2-eksamen/#hero" target="_blank" rel="noopener">
+        <button type="button" class="project-card" data-open="project-lumina">
           <img src="img/lumina-projekt.webp" loading="lazy" decoding="async" alt="Lumina Audio projekt thumbnail" >
           <span class="font-to-folder">Lumina Audio</span>
-        </a>
+        </button>
       </div>
     </div>
   </section>
@@ -206,6 +206,81 @@
           <p class="font-to-folder">
             Det endelige resultat blev en komplet og responsiv webshop, som blev koblet tæt sammen med vores markedsføringsstrategi for sociale medier. For at drive den rette trafik til shoppen udviklede vi tre målrettede videoer til Meta, der ramte henholdsvis en kernemålgruppe, en tilpasset målgruppe og en kopimålgruppe (Lookalike). Projektet gav mig en stærk og praktisk forståelse for hele kæden i digital produktudvikling – fra den spæde målgruppeanalyse og Figma-skitsering til teknisk WooCommerce-eksekvering, SEO og konverterende design.
           </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECT DETAIL: Lumina Audio — opens on top of my-work, which stays open behind it -->
+  <section class="window window--project" id="window-project-lumina" role="dialog" aria-modal="true" aria-label="Lumina Audio projekt">
+    <div class="window-titlebar">
+      <div class="window-dots">
+        <button type="button" class="dot dot--red" data-close aria-label="Luk vindue"></button>
+        <span class="dot dot--yellow" aria-hidden="true"></span>
+        <span class="dot dot--green" aria-hidden="true"></span>
+      </div>
+      <span class="window-title">my-work</span>
+    </div>
+    <div class="window-body">
+      <h2>Lumina Audio - Sustainable Web</h2>
+      <img src="img/lu-apps.webp" loading="lazy" decoding="async" alt="Figma, VS Code, GitHub" class="tool-icons" >
+
+      <div class="detail-column">
+        <div class="device-mockup detail-image detail-image--hero">
+          <img src="img/hh-laptop.webp" loading="lazy" decoding="async" alt="" >
+          <img class="device-screen device-screen--laptop" src="img/lu-desktop.webp" loading="lazy" decoding="async" alt="Lumina Audio forside på laptop" >
+        </div>
+
+        <p class="font-to-folder">
+          Lumina One er en landing page for en bærbar Bluetooth-højttaler fra 1. semester. På 3. semester tog jeg den op igen i projektet Sustainable Web, hvor målet var at gøre siden hurtigere, grønnere og nem at bruge for alle.
+        </p>
+
+        <ul class="stat-grid" aria-label="Resultater før og efter optimeringen">
+          <li class="stat-card">
+            <span class="stat-label">CO₂ pr. visning</span>
+            <span class="stat-value">0,05 g</span>
+            <span class="stat-before">før 0,39 g · fra F til A</span>
+          </li>
+          <li class="stat-card">
+            <span class="stat-label">Lighthouse</span>
+            <span class="stat-value">99/100</span>
+            <span class="stat-before">før 75/100</span>
+          </li>
+          <li class="stat-card">
+            <span class="stat-label">Indlæsning</span>
+            <span class="stat-value">0,9 sek</span>
+            <span class="stat-before">før 7,4 sek</span>
+          </li>
+          <li class="stat-card">
+            <span class="stat-label">WAVE-advarsler</span>
+            <span class="stat-value">2</span>
+            <span class="stat-before">før 9</span>
+          </li>
+        </ul>
+
+        <div class="detail-row detail-row--phone">
+          <p class="font-to-folder">
+            Først testede vi den gamle side med Lighthouse, WAVE og Website Carbon og med fire brugere, blandt andre en blind skærmlæserbruger og en bruger med senhjerneskade. Testen viste tunge billeder, en kurv der fangede tastaturbrugere, og farvevalg som skærmlæseren ikke kunne læse op.
+          </p>
+          <div class="device-mockup detail-image detail-image--phone">
+            <img src="img/hh-mobile.webp" loading="lazy" decoding="async" alt="" >
+            <img class="device-screen device-screen--phone" src="img/lu-mobile.webp" loading="lazy" decoding="async" alt="Lumina Audio forside på mobil" >
+          </div>
+        </div>
+
+        <p class="font-to-folder">
+          Derefter byggede jeg siden op igen mobile-first i semantisk HTML, CSS og ren JavaScript. Billederne blev til WebP, farvevælgeren til rigtige knapper, kurven kan lukkes med Escape, og specifikationerne foldes ud, så de er nemme at overskue.
+        </p>
+
+        <div class="detail-screens">
+          <img src="img/lu-produkt.webp" loading="lazy" decoding="async" alt="Produktsektion med farvevælger og Læg i kurv-knap" >
+          <img src="img/lu-specs.webp" loading="lazy" decoding="async" alt="Specifikationer som fold-ud-elementer" >
+          <img src="img/lu-app.webp" loading="lazy" decoding="async" alt="App-sektion med download-knapper" >
+        </div>
+
+        <div class="detail-links">
+          <a class="detail-link" href="https://emiliavlh.github.io/lumina-del2-eksamen/#hero" target="_blank" rel="noopener">Se den færdige side</a>
+          <a class="detail-link detail-link--ghost" href="https://github.com/Emiliavlh/lumina-del2-eksamen" target="_blank" rel="noopener">Se koden på GitHub</a>
         </div>
       </div>
     </div>
